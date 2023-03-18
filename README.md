@@ -1,9 +1,9 @@
 # MeshNetworkAnalysis
-Approcah to detect mesh networks among other networks
+Approach to detect mesh networks among other networks
 
 
-# Creating Mesh Network
- <code>sudo service network-manager stop</code>
+### Creating Mesh Network
+ <code>sudo service network-manager stop</code> / <code>systemctl stop NetworkManager</code>
  <br/>
  <code>sudo ip link set wlo1 down</code>
  <br/>
@@ -24,5 +24,7 @@ Approcah to detect mesh networks among other networks
 <br/>
 <code>ping 169.254.34.2</code>
 <br/>
+<br/>
 https://bbs.archlinux.org/viewtopic.php?id=230151
+<br/>
 https://help.ubuntu.com/community/WifiDocs/Adhoc
