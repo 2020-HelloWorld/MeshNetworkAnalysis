@@ -3,7 +3,7 @@ Approach to detect mesh networks among other networks
 
 
 ### Creating Mesh Network
- <code>sudo service network-manager stop</code> / <code>systemctl status NetworkManager</code>
+ <code>sudo service network-manager stop</code> / <code>systemctl stop NetworkManager</code>
  <br/>
  <code>sudo ip link set wlo1 down</code>
  <br/>
