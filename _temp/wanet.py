@@ -2,20 +2,19 @@ import os
 import socket
 import threading
 
-# Set the wireless interface to ad-hoc mode
-os.system("sudo iwconfig wlan0 mode ad-hoc")
+myIp = input("Configure your IP address: ")
 
-# Set the ESSID (network name) of the ad-hoc network
-os.system("sudo iwconfig wlan0 essid my_adhoc_network")
-
-# Set the channel number for the ad-hoc network
-os.system("sudo iwconfig wlan0 channel 1")
-
-# Set the IP address for the wireless interface
-os.system("sudo ifconfig wlan0 192.168.1.1 netmask 255.255.255.0")
+os.system("systemctl stop NetworkManager")
+os.system("sudo ip link set wlo1 down")
+os.system("sudo iwconfig wlo1 mode ad-hoc")
+os.system("sudo iwconfig wlo1 channel 1")
+os.system("sudo iwconfig wlo1 essid Kavach")
+os.system("sudo iwconfig wlo1 key 1234567890")
+os.system("sudo iwconfig wlo1 ap 12:3E:30:39:BE:A1")
+os.system("sudo ip link set wlo1 up")
+os.system(f"sudo ip addr add 168.254.{myIp}/16 dev wlo1")
 
 # Set the IP address and port number of the remote node to chat with
-REMOTE_HOST = "192.168.1.2"
 REMOTE_PORT = 12345
 
 # Create a UDP socket for sending and receiving messages
@@ -25,17 +24,15 @@ def receive_messages():
     # Continuously receive messages from the remote node
     while True:
         message, address = sock.recvfrom(1024)
-        if address[0] == REMOTE_HOST:
-            print(f"Received message: {message.decode('utf-8')}")
-        else:
-            print(f"Broadcasting message: {message.decode('utf-8')}")
-            sock.sendto(message, ("255.255.255.255", REMOTE_PORT))
+        print(f"From {address[0]}")
+        print(f"Received message: {message.decode('utf-8')}\n")
 
 def send_messages():
     # Continuously send messages to the remote node
     while True:
+        REMOTE_HOST = input("Reciever IP")
         message = input("Enter a message: ")
-        sock.sendto(message.encode("utf-8"), (REMOTE_HOST, REMOTE_PORT))
+        sock.sendto(message.encode("utf-8"), (f"192.168.{REMOTE_HOST}", REMOTE_PORT))
 
 # Start a thread to receive messages
 threading.Thread(target=receive_messages, daemon=True).start()
