@@ -1,8 +1,8 @@
 # MeshNetworkAnalysis
-Approcah to detect mesh networks among other networks
+Approach to detect mesh networks among other networks
 
 
-# Creating Mesh Network
+### Creating Mesh Network
  <code>sudo service network-manager stop</code>
  <br/>
  <code>sudo ip link set wlo1 down</code>
