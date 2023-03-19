@@ -1,5 +1,13 @@
 from flask import Blueprint, render_template, request, flash
 import os
+import pyshark
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from scapy.utils import PcapWriter
+from datetime import datetime
+import subprocess
+import threading
+import time
 
 views = Blueprint('views', __name__)
 
@@ -73,3 +81,58 @@ def scanfilt():
 def reset():
     os.system("systemctl start NetworkManager")
     return render_template("connect.html")
+
+@views.route('/analyse', methods=['GET', 'POST'])
+def analyse():
+    def merge():
+        while True:
+            try:
+                directory = './files'
+                source = ""
+                for filename in os.listdir(directory):
+                    f = os.path.join(directory, filename)
+                    if os.path.isfile(f) and f.endswith(".pcap"):
+                        r = f.replace(" ","")
+                        if r!=f:
+                            os.rename(f,r)
+                        source+=" "+f
+                os.system(f"sudo mergecap -a -w Kavach.pcap {source}")
+            except:
+                pass
+            
+            time.sleep(12)
+            
+    def plot():
+        fig,ax = plt.subplots()
+        x = [0]
+        y = [0]
+        ln, = ax.plot(x,y,'-')
+        plt.xlabel('Time')
+        plt.ylabel('Packet Count')
+        plt.title('Network Traffic')
+        # print("init")
+        def animate(frame):
+            name = datetime.now()
+            # print("ani")
+            capture = pyshark.LiveCapture(interface='wlo1',output_file=f"files/{name}.pcap")
+            # print("captured")
+            count =0
+            capture.sniff(timeout=10)
+            # print("cap")
+            count = len(capture)
+            # print("leng",count)
+            ax.clear()
+            x.append(x[-1]+10)
+            y.append(count)
+            ln, = ax.plot(x,y,'-')
+            plt.xlabel('Time')
+            plt.ylabel('Packet Count')
+            plt.title('Network Traffic')
+            
+
+        ani = animation.FuncAnimation(fig,animate,interval=1000,repeat=False)
+        plt.show()
+    threading.Thread(target=merge, daemon=False).start()
+    threading.Thread(target=plot, daemon=False).start()
+    return render_template("ping.html")
+    
