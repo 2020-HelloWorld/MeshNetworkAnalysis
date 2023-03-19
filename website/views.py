@@ -53,16 +53,20 @@ def ping():
 
 @views.route('/scan', methods=['GET', 'POST'])
 def scan():
-    table = []
-    if request.method == 'GET':
-        os.system("nmcli dev wifi > list.txt")
-        with open("list.txt") as w:
-            x = w.readlines()
-            for i in x:
-                y = i.split()
-                table.append((y[1],y[2],y[8]))   
-            table.pop(0)
-    return render_template("scan.html",table=table)
+    try:
+        table = []
+        if request.method == 'GET':
+            os.system("nmcli dev wifi > list.txt")
+            with open("list.txt") as w:
+                x = w.readlines()
+                for i in x:
+                    y = i.split()
+                    table.append((y[1],y[2],y[8]))   
+                table.pop(0)
+        return render_template("scan.html",table=table)
+    except:
+        flash('Cannot Scan with Network Manager off', category='error')
+        return render_template("ping.html") 
 
 @views.route('/scan-filt', methods=['GET', 'POST'])
 def scanfilt():
