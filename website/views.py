@@ -25,7 +25,7 @@ def home():
             os.system("sudo iwconfig wlo1 key 1234567890")
             os.system("sudo iwconfig wlo1 ap 12:3E:30:39:BE:A1")
             os.system("sudo ip link set wlo1 up")
-            os.system(f"sudo ip addr add 168.254.{ip}/16 dev wlo1")
+            os.system(f"sudo ip addr add {ip}/16 dev wlo1")
             flash('Successfully joined Mesh Network', category='success')
         except:
             flash('Error joining Mesh Network', category='error') 
