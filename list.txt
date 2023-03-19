@@ -1,0 +1,27 @@
+IN-USE  BSSID              SSID                     MODE   CHAN  RATE        SIGNAL  BARS  SECURITY    
+        EA:F3:BC:66:08:D1  VK                       Infra  11    65 Mbit/s   100     ▂▄▆█  WPA2        
+        26:15:10:29:02:52  GJBC_PESU52              Infra  11    260 Mbit/s  95      ▂▄▆█  --          
+        26:15:10:29:02:41  GJBC_Cafeteria           Infra  36    540 Mbit/s  95      ▂▄▆█  --          
+        26:15:10:29:02:51  GJBC_Cafeteria           Infra  11    260 Mbit/s  92      ▂▄▆█  --          
+        26:15:10:29:01:D4  GJBC_PESU52              Infra  6     260 Mbit/s  75      ▂▄▆_  --          
+        26:15:10:29:01:D1  GJBC_Cafeteria           Infra  6     260 Mbit/s  75      ▂▄▆_  --          
+*       26:15:10:29:02:42  GJBC_PESU52              Infra  36    540 Mbit/s  75      ▂▄▆_  --          
+        26:15:10:29:02:00  --                       Infra  44    540 Mbit/s  74      ▂▄▆_  WPA2 802.1X 
+        26:15:10:29:02:03  --                       Infra  44    540 Mbit/s  72      ▂▄▆_  WPA2        
+        26:15:10:29:01:C1  GJBC_Cafeteria           Infra  157   540 Mbit/s  72      ▂▄▆_  --          
+        26:15:10:29:01:C4  GJBC_PESU52              Infra  157   540 Mbit/s  72      ▂▄▆_  --          
+        26:15:10:29:02:12  GJBC_PESU52              Infra  6     260 Mbit/s  70      ▂▄▆_  --          
+        26:15:10:29:02:02  GJBC_PESU52              Infra  44    540 Mbit/s  70      ▂▄▆_  --          
+        0A:0C:18:C6:BF:A0  Yashaswini's Galaxy M32  Infra  6     117 Mbit/s  69      ▂▄▆_  WPA2        
+        26:15:10:29:02:01  GJBC_Cafeteria           Infra  44    540 Mbit/s  69      ▂▄▆_  --          
+        26:15:10:29:01:84  GJBC_PESU52              Infra  149   540 Mbit/s  69      ▂▄▆_  --          
+        26:15:10:29:02:11  GJBC_Cafeteria           Infra  6     260 Mbit/s  67      ▂▄▆_  --          
+        26:15:10:29:01:81  GJBC_Cafeteria           Infra  149   540 Mbit/s  67      ▂▄▆_  --          
+        3E:8C:A8:9A:E4:7F  iQOO Z6                  Infra  36    135 Mbit/s  64      ▂▄▆_  WPA2        
+        02:B4:92:7C:11:53  _m42                     Infra  157   135 Mbit/s  62      ▂▄▆_  WPA2        
+        26:15:10:29:01:94  GJBC_PESU52              Infra  1     260 Mbit/s  54      ▂▄__  --          
+        AE:61:C4:37:3E:B6  Tunak Tunak Tun          Infra  1     65 Mbit/s   54      ▂▄__  WPA2        
+        6C:AA:B3:32:4B:58  PLACEMENT-1              Infra  10    130 Mbit/s  54      ▂▄__  --          
+        62:0B:1F:C8:89:2C  Vijayanagar              Infra  11    117 Mbit/s  54      ▂▄__  WPA2        
+        26:15:10:29:01:91  GJBC_Cafeteria           Infra  1     260 Mbit/s  52      ▂▄__  --          
+        92:5F:94:74:1B:87  JAHNAVI's Galaxy A13     Infra  1     65 Mbit/s   49      ▂▄__  WPA2        
