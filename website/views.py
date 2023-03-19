@@ -29,6 +29,13 @@ def ping():
     if request.method == 'POST': 
         ip = request.form.get('ip')#Gets the note from the HTML
         try: 
+            if len(ip.split('.'))!=4:
+                raise "Wrong Format"
+            l = list(map(lambda x:str(x),list(range(0,10))))
+            l.append('.')
+            for i in ip:
+                if i not in l:
+                    raise "Wrong Format"
             os.system(f"ping -c 5 {ip}")
             flash('Successfully sent 5 ICMP packets', category='success')
         except:
